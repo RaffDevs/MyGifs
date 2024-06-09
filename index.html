@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyGifs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <h1>MyGifs</h1>
+        <input type="text" v-model="searchTerm" placeholder="Search for GIFs">
+        <button @click="searchGifs">Search</button>
+        <div class="grid" v-if="gifs.length">
+            <div class="grid-item" v-for="gif in gifs" :key="gif.id" @click="copyLink(gif.images.original.url)">
+                <img :src="gif.images.fixed_height.url" :alt="gif.title">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
